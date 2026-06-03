@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uchtepa — Yangi Zamonaviy Markazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B3E;
+  --navy2: #152347;
+  --navy3: #1C2D57;
+  --silver: #C8CDD8;
+  --silver2: #8A92A3;
+  --silver3: #4A5268;
+  --gold: #C9A84C;
+  --gold2: #E8C97A;
+  --gold3: #8A6E2F;
+  --bg:    #080E1F;
+  --bg2:   #0D1630;
+  --bg3:   #111D3A;
+  --border: rgba(200,205,216,0.10);
+  --text:  #E8EBF2;
+  --text2: #8A92A3;
+  --text3: #4A5268;
+  --radius: 3px;
+  --logo: url('logo_dark.png');
+}
+[data-theme="light"] {
+  --bg:    #F4F5F8;
+  --bg2:   #FFFFFF;
+  --bg3:   #EAECF2;
+  --border: rgba(13,27,62,0.12);
+  --text:  #0D1B3E;
+  --text2: #3A4A6E;
+  --text3: #8A92A3;
+  --navy:  #0D1B3E;
+  --silver: #3A4A6E;
+  --silver2: #6A7490;
+  --logo: url('logo_light.png');
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;}
+
+/* ===== HEADER ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+  background:rgba(8,14,31,0.90);
+  backdrop-filter:blur(16px);
+  border-bottom:0.5px solid var(--border);
+  transition:transform 0.3s, background 0.3s;
+}
+[data-theme="light"] header{background:rgba(244,245,248,0.92);}
+.logo-img{height:36px;width:auto;object-fit:contain;}
+.logo-dark{display:block;}
+.logo-light{display:none;}
+[data-theme="light"] .logo-dark{display:none;}
+[data-theme="light"] .logo-light{display:block;}
+
+nav{display:flex;gap:32px;}
+nav a{
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text2);text-decoration:none;transition:color 0.2s;
+}
+nav a:hover{color:var(--gold2);}
+
+.h-right{display:flex;align-items:center;gap:12px;}
+.lang-sw{display:flex;gap:1px;}
+.lb{
+  background:none;border:none;cursor:pointer;
+  font-size:11px;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text3);padding:5px 8px;
+  border-radius:var(--radius);transition:all 0.2s;
+}
+.lb.active,.lb:hover{color:var(--gold);background:rgba(201,168,76,0.10);}
+.theme-btn{
+  background:none;border:0.5px solid var(--border);cursor:pointer;
+  color:var(--text2);width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+  transition:all 0.2s;
+}
+.theme-btn:hover{color:var(--gold);border-color:var(--gold3);}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.burger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:all 0.3s;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 5vw 10vh;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 30%, rgba(13,27,62,0.0) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(8,14,31,0) 40%, rgba(8,14,31,0.95) 100%);
+}
+.hero-map{
+  position:absolute;inset:0;z-index:0;
+  background:url('masterplan.png') center/cover no-repeat;
+  opacity:0.18;
+  filter:grayscale(30%);
+}
+[data-theme="light"] .hero-map{opacity:0.12;}
+.hero-content{position:relative;z-index:1;max-width:680px;}
+.eyebrow{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,9vw,108px);font-weight:300;line-height:0.92;
+  letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;
+}
+.hero-title em{font-style:italic;color:var(--gold2);}
+.hero-sub{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--silver2);margin:0 0 20px 3px;}
+.hero-desc{font-size:15px;color:var(--text2);max-width:440px;line-height:1.85;margin-bottom:44px;}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--gold3);color:var(--gold2);
+  padding:13px 30px;font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;text-decoration:none;
+  transition:all 0.3s;cursor:pointer;background:none;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-outline:hover{background:rgba(201,168,76,0.08);border-color:var(--gold2);gap:16px;}
+
+.hero-kpi{
+  position:absolute;right:5vw;bottom:10vh;z-index:1;
+  display:flex;flex-direction:column;gap:28px;text-align:right;
+}
+.kpi-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--gold2);line-height:1;}
+.kpi-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-top:2px;}
+
+/* ===== SECTIONS ===== */
+section{padding:96px 5vw;}
+.sec-eyebrow{font-size:10px;letter-spacing:0.20em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';display:block;width:26px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:14px;}
+.sec-title em{font-style:italic;color:var(--gold2);}
+.sec-lead{font-size:14px;color:var(--text2);max-width:540px;line-height:1.85;margin-bottom:56px;}
+hr.div{border:none;border-top:0.5px solid var(--border);}
+
+/* ===== INDICATORS ===== */
+#indicators{background:var(--bg);}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:0.5px solid var(--border);}
+.ind-card{
+  background:var(--bg2);padding:32px 28px;
+  border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);
+  transition:background 0.2s;
+}
+.ind-card:hover{background:var(--bg3);}
+.ind-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold2);line-height:1;margin-bottom:6px;}
+.ind-unit{font-size:12px;color:var(--gold3);letter-spacing:0.05em;}
+.ind-label{font-size:12px;color:var(--text2);margin-top:6px;line-height:1.5;}
+.ind-card.wide{grid-column:span 2;}
+.ind-card.hero-card{background:var(--bg3);border:0.5px solid rgba(201,168,76,0.2);}
+.ind-card.hero-card .ind-num{font-size:56px;color:var(--gold2);}
+
+/* Plan image */
+.plan-wrap{
+  position:relative;margin-top:64px;
+  border:0.5px solid var(--border);overflow:hidden;
+}
+.plan-wrap img{width:100%;display:block;height:auto;}
+.plan-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(8,14,31,0.85) 0%,transparent 100%);
+  padding:24px 28px;font-size:11px;letter-spacing:0.10em;
+  text-transform:uppercase;color:var(--text2);
+}
+[data-theme="light"] .plan-caption{background:linear-gradient(0deg,rgba(244,245,248,0.85) 0%,transparent 100%);color:var(--text2);}
+
+/* ===== LOTS ===== */
+#lots{background:var(--bg2);}
+.lots-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.lots-map-wrap{position:sticky;top:88px;}
+.lots-map-wrap img{width:100%;border:0.5px solid var(--border);}
+.lots-table{width:100%;border-collapse:collapse;}
+.lots-table th{
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text3);font-weight:400;padding:10px 16px;
+  border-bottom:0.5px solid var(--border);text-align:left;
+}
+.lots-table td{
+  padding:14px 16px;border-bottom:0.5px solid var(--border);
+  font-size:13px;color:var(--text2);
+}
+.lots-table tr:hover td{background:var(--bg3);}
+.lot-n{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);font-weight:300;}
+.lot-area{color:var(--text);font-weight:500;white-space:nowrap;}
+.badge{display:inline-block;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.badge-res{border:0.5px solid rgba(201,168,76,0.3);color:var(--gold);background:rgba(201,168,76,0.06);}
+.badge-biz{border:0.5px solid rgba(100,160,255,0.3);color:#7AABFF;background:rgba(100,160,255,0.06);}
+.badge-soc{border:0.5px solid rgba(100,200,120,0.3);color:#7AC890;background:rgba(100,200,120,0.06);}
+.badge-park{border:0.5px solid rgba(200,120,100,0.3);color:#E8A090;background:rgba(200,120,100,0.06);}
+
+/* ===== FUNCTIONAL 3D ===== */
+#functional{background:var(--bg);}
+.func-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.func-3d img{width:100%;border:0.5px solid var(--border);}
+.func-legend{display:flex;flex-direction:column;gap:20px;}
+.legend-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:0.5px solid var(--border);}
+.legend-item:last-child{border-bottom:none;}
+.legend-dot{width:14px;height:14px;border-radius:2px;flex-shrink:0;margin-top:3px;}
+.legend-title{font-size:14px;color:var(--text);margin-bottom:4px;font-weight:500;}
+.legend-desc{font-size:12px;color:var(--text2);line-height:1.6;}
+
+/* ===== PRICE ===== */
+#price{background:var(--bg2);}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:0.5px solid var(--border);}
+.price-card{
+  background:var(--bg);padding:40px 32px;
+  border-right:0.5px solid var(--border);transition:all 0.3s;
+  position:relative;overflow:hidden;
+}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);}
+.price-card:hover{background:var(--bg3);}
+.price-type{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);}
+.price-amount{
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;font-weight:300;color:var(--gold2);line-height:1;margin:14px 0 8px;
+}
+.price-amount sup{font-size:20px;vertical-align:top;margin-top:10px;color:var(--gold3);}
+.price-per{font-size:11px;color:var(--text3);}
+.price-desc{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7;}
+.price-link{
+  display:inline-block;margin-top:28px;font-size:11px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold3);
+  padding-bottom:2px;cursor:pointer;text-decoration:none;transition:border-color 0.2s;
+}
+.price-link:hover{border-color:var(--gold2);}
+
+.comp-section{margin-top:56px;}
+.comp-title-sm{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:16px;}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.comp-card{background:var(--bg3);border:0.5px solid var(--border);padding:20px 22px;}
+.comp-name{font-size:11px;color:var(--text3);margin-bottom:8px;}
+.comp-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--text2);}
+.comp-unit{font-size:10px;color:var(--text3);}
+.our-price .comp-val{color:var(--gold2);}
+
+/* ===== ABOUT ===== */
+#about{background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start;}
+.about-text p{font-size:15px;color:var(--text2);line-height:1.9;margin-bottom:22px;}
+.about-text strong{color:var(--text);}
+.timeline{display:flex;flex-direction:column;}
+.tl-item{display:flex;gap:22px;padding:22px 0;border-bottom:0.5px solid var(--border);}
+.tl-item:last-child{border-bottom:none;}
+.tl-year{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold);min-width:54px;padding-top:2px;}
+.tl-title{font-size:13px;color:var(--text);font-weight:500;margin-bottom:4px;}
+.tl-desc{font-size:12px;color:var(--text2);line-height:1.6;}
+
+/* ===== CONTACTS ===== */
+#contacts{background:var(--bg2);}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:0.5px solid var(--border);}
+.contact-card{background:var(--bg);padding:48px 44px;border:0.5px solid var(--border);transition:border-color 0.3s;}
+.contact-card:hover{border-color:var(--gold3);}
+.c-role{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold3);margin-bottom:16px;}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--text);margin-bottom:24px;line-height:1.2;}
+.c-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text2);margin-bottom:14px;}
+.c-icon{font-size:15px;color:var(--gold3);min-width:20px;}
+.c-item a{color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.c-item a:hover{color:var(--gold2);}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--bg);border-top:0.5px solid var(--border);
+  padding:44px 5vw 32px;
+}
+.ft-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;}
+.ft-logo{height:30px;width:auto;}
+.socials{display:flex;gap:12px;}
+.soc{
+  width:38px;height:38px;border:0.5px solid var(--border);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  color:var(--text3);text-decoration:none;transition:all 0.2s;
+}
+.soc:hover{border-color:var(--gold3);color:var(--gold);}
+.ft-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:22px;border-top:0.5px solid var(--border);
+  font-size:11px;color:var(--text3);
+}
+.ft-links{display:flex;gap:22px;}
+.ft-links a{color:var(--text3);text-decoration:none;font-size:11px;letter-spacing:0.07em;transition:color 0.2s;}
+.ft-links a:hover{color:var(--gold3);}
+
+/* ===== MOBILE MENU ===== */
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:var(--bg2);border-bottom:0.5px solid var(--border);
+  padding:22px 5vw;flex-direction:column;gap:18px;z-index:199;
+}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text2);text-decoration:none;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  nav{display:none;} .burger{display:flex;}
+  .lots-layout{grid-template-columns:1fr;} .lots-map-wrap{position:static;}
+  .func-layout{grid-template-columns:1fr;}
+  .price-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .contacts-grid{grid-template-columns:1fr;}
+  .comp-grid{grid-template-columns:1fr 1fr;}
+  .hero-kpi{display:none;}
+  .ind-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  section{padding:60px 5vw;}
+  .ind-grid{grid-template-columns:1fr;}
+  .comp-grid{grid-template-columns:1fr;}
+  .ft-top{flex-direction:column;gap:20px;align-items:flex-start;}
+  .ft-bottom{flex-direction:column;gap:10px;align-items:flex-start;}
+}
+*,*::before,*::after{transition:background-color 0.3s,border-color 0.3s,color 0.2s;}
+
+/* ===== PROJECTS ===== */
+#projects{background:var(--bg2);}
+.proj-block{margin-bottom:72px;}
+.proj-block:last-child{margin-bottom:0;}
+.proj-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:20px;
+}
+.proj-eyebrow{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,40px);font-weight:300;color:var(--text);}
+.proj-area-badge{
+  font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;
+  color:var(--gold2);line-height:1;text-align:right;
+}
+.proj-area-badge span{font-size:16px;color:var(--gold3);letter-spacing:0.05em;}
+.proj-desc{font-size:14px;color:var(--text2);margin-top:20px;max-width:600px;line-height:1.8;}
+
+/* Before/After slider */
+.compare-wrap{
+  position:relative;height:480px;overflow:hidden;
+  border:0.5px solid var(--border);cursor:ew-resize;
+  user-select:none;-webkit-user-select:none;
+}
+.compare-before,.compare-after{
+  position:absolute;inset:0;overflow:hidden;
+}
+.compare-before img,.compare-after img{
+  width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;
+}
+.compare-after{
+  clip-path:inset(0 50% 0 0);
+  transition:clip-path 0.05s;
+}
+.compare-label{
+  position:absolute;bottom:16px;
+  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+  padding:5px 14px;border-radius:2px;pointer-events:none;
+}
+.before-label{left:16px;background:rgba(0,0,0,0.55);color:#fff;}
+.after-label{right:16px;background:rgba(201,168,76,0.85);color:#000;}
+.compare-slider{
+  position:absolute;top:0;bottom:0;left:50%;width:2px;
+  background:rgba(201,168,76,0.8);transform:translateX(-50%);
+  pointer-events:none;
+}
+.compare-handle{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:var(--gold);color:#000;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.4);
+}
+@media(max-width:600px){.compare-wrap{height:260px;}}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#">
+    <img src="logo_dark.png"  class="logo-img logo-dark"  alt="Uchtepa">
+    <img src="logo_light.png" class="logo-img logo-light" alt="Uchtepa">
+  </a>
+  <nav>
+    <a href="#indicators" data-i="nav_ind">Ko'rsatkichlar</a>
+    <a href="#projects" data-i="nav_proj">Loyihalar</a>
+    <a href="#lots"       data-i="nav_lots">Lotlar</a>
+    <a href="#price"      data-i="nav_price">Narxlar</a>
+    <a href="#about"      data-i="nav_about">Biz haqimizda</a>
+    <a href="#contacts"   data-i="nav_contacts">Kontaktlar</a>
+  </nav>
+  <div class="h-right">
+    <div class="lang-sw">
+      <button class="lb active" onclick="setLang('uz')">UZ</button>
+      <button class="lb" onclick="setLang('ru')">RU</button>
+      <button class="lb" onclick="setLang('en')">EN</button>
+      <button class="lb" onclick="setLang('vi')">VI</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀</button>
+    <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#indicators" onclick="toggleMenu()" data-i="nav_ind">Ko'rsatkichlar</a>
+  <a href="#projects" onclick="toggleMenu()" data-i="nav_proj">Loyihalar</a>
+  <a href="#lots"       onclick="toggleMenu()" data-i="nav_lots">Lotlar</a>
+  <a href="#price"      onclick="toggleMenu()" data-i="nav_price">Narxlar</a>
+  <a href="#about"      onclick="toggleMenu()" data-i="nav_about">Biz haqimizda</a>
+  <a href="#contacts"   onclick="toggleMenu()" data-i="nav_contacts">Kontaktlar</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-map"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow" data-i="hero_tag">Investitsiya loyihasi • Toshkent, Uchtepa tumani</div>
+    <h1 class="hero-title">UCHTEPA</h1>
+    <p class="hero-sub">Yangi Zamonaviy Markazi</p>
+    <p class="hero-desc" data-i="hero_desc">19.4 gektar maydonda qurilayotgan zamonaviy shahar loyihasi — 31 ta turar-joy binosi, 2 ta biznes markaz, maktab, MTM va dam olish alliyasi.</p>
+    <a href="#indicators" class="btn-outline"><span data-i="hero_btn">Ko'rsatkichlarni ko'rish</span> →</a>
+  </div>
+  <div class="hero-kpi">
+    <div><div class="kpi-num">19.4 <span style="font-size:18px;color:var(--gold3)">Ga</span></div><div class="kpi-label" data-i="kpi1">Umumiy maydon</div></div>
+    <div><div class="kpi-num">6 664</div><div class="kpi-label" data-i="kpi2">Xonadonlar soni</div></div>
+    <div><div class="kpi-num">22 148</div><div class="kpi-label" data-i="kpi3">Aholi soni</div></div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- GENERAL INDICATORS -->
+<section id="indicators">
+  <div class="sec-eyebrow" data-i="ind_tag">Umumiy texnik-iqtisodiy ko'rsatkichlar</div>
+  <h2 class="sec-title" data-i="ind_title">Loyiha <em>ko'rsatkichlari</em></h2>
+  <p class="sec-lead" data-i="ind_lead">Uchtepa City master-plani asosida hisoblangan texnik-iqtisodiy ko'rsatkichlar.</p>
+
+  <div class="ind-grid">
+    <div class="ind-card hero-card wide">
+      <div class="ind-num">193 969.6 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i1">Lotlar hududi umumiy maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">63 436.3 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i2">Umumiy qurilish maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">2 080.44 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i3">Umumiy yashil maydon</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">2 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i4">Biznes markazlari soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">246 328.8 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i5">Biznes markazlari maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">31 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i6">Turar-joy binolari soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">18–22 <span class="ind-unit">qavat</span></div>
+      <div class="ind-label" data-i="i7">Turar-joy qavatlar soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">819 809.6 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i8">Turar-joy umumiy qavatlar maydoni</div>
+    </div>
+    <div class="ind-card hero-card">
+      <div class="ind-num">6 664 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i9">Umumiy xonadonlar soni</div>
+    </div>
+    <div class="ind-card hero-card">
+      <div class="ind-num">22 148 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i10">Aholi soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">1 719.3 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i11">Maktab qurilish maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">4 <span class="ind-unit">qavat</span></div>
+      <div class="ind-label" data-i="i12">Maktab qavatlar soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">6 877.2 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i13">Maktab qavatlar umumiy maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">951.5 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i14">MTM qurilish maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">2 <span class="ind-unit">qavat</span></div>
+      <div class="ind-label" data-i="i15">MTM qavatlar soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">1 903 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i16">MTM qavatlar maydoni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">2 986 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i17">Yer usti avtoturargoh o'rinlari soni</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-num">118 828.2 <span class="ind-unit">m²</span></div>
+      <div class="ind-label" data-i="i18">Savdo sotiq qavatlar umumiy maydoni</div>
+    </div>
+    <div class="ind-card hero-card">
+      <div class="ind-num">6 072 <span class="ind-unit">ta</span></div>
+      <div class="ind-label" data-i="i19">Yer osti avtoturargoh o'rinlari soni</div>
+    </div>
+  </div>
+
+  <!-- Master Plan image -->
+  <div class="plan-wrap">
+    <img src="masterplan.png" alt="Uchtepa City Master Plan">
+    <div class="plan-caption" data-i="plan_cap">Uchtepa City — Umumiy bosh reja</div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- LOTS -->
+<section id="lots">
+  <div class="sec-eyebrow" data-i="lots_tag">Hududning lotlarga bo'linishi</div>
+  <h2 class="sec-title" data-i="lots_title">15 ta alohida <em>lot</em></h2>
+  <p class="sec-lead" data-i="lots_lead">Umumiy maydon 19.4 Ga. Har bir lot alohida mulk sifatida ro'yxatdan o'tkazilishi mumkin.</p>
+
+  <div class="lots-layout">
+    <div class="lots-map-wrap">
+      <img src="lots_map.png" alt="Lots Map">
+    </div>
+    <div>
+      <table class="lots-table">
+        <thead>
+          <tr>
+            <th data-i="th_n">Lot</th>
+            <th data-i="th_type">Tur</th>
+            <th data-i="th_area">Maydon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="lot-n">1</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">6 934.8 m²</td></tr>
+          <tr><td class="lot-n">2</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">17 293.8 m²</td></tr>
+          <tr><td class="lot-n">3</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">6 492.6 m²</td></tr>
+          <tr><td class="lot-n">4</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">5 871.2 m²</td></tr>
+          <tr><td class="lot-n">5</td><td><span class="badge badge-biz" data-i="b_biz">Biznes markaz</span></td><td class="lot-area">14 633 m²</td></tr>
+          <tr><td class="lot-n">6</td><td><span class="badge badge-soc" data-i="b_soc">Maktab</span></td><td class="lot-area">6 265.7 m²</td></tr>
+          <tr><td class="lot-n">7</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">8 438.2 m²</td></tr>
+          <tr><td class="lot-n">8</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">8 469.2 m²</td></tr>
+          <tr><td class="lot-n">9</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">22 169.9 m²</td></tr>
+          <tr><td class="lot-n">10</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">20 440.4 m²</td></tr>
+          <tr><td class="lot-n">11</td><td><span class="badge badge-soc" data-i="b_mtm">Bog'cha (MTM)</span></td><td class="lot-area">2 408.5 m²</td></tr>
+          <tr><td class="lot-n">12</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">39 324.7 m²</td></tr>
+          <tr><td class="lot-n">13</td><td><span class="badge badge-res" data-i="b_res">Turar-joy</span></td><td class="lot-area">5 054.2 m²</td></tr>
+          <tr><td class="lot-n">14</td><td><span class="badge badge-biz" data-i="b_biz">Biznes markaz</span></td><td class="lot-area">15 170.1 m²</td></tr>
+          <tr><td class="lot-n">15</td><td><span class="badge badge-park" data-i="b_park">Avtoturargoh</span></td><td class="lot-area">15 003.3 m²</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- FUNCTIONAL ZONING -->
+<section id="functional">
+  <div class="sec-eyebrow" data-i="func_tag">Binolarning funksional taqsimlashi</div>
+  <h2 class="sec-title" data-i="func_title">Funksional <em>zonalar</em></h2>
+
+  <div class="func-layout">
+    <div class="func-3d">
+      <img src="functional_3d.png" alt="Functional Zoning 3D">
+    </div>
+    <div class="func-legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#E8D080;"></div>
+        <div>
+          <div class="legend-title" data-i="leg1_t">Turar-joy binolari</div>
+          <div class="legend-desc" data-i="leg1_d">31 ta bino, 18–22 qavat. Umumiy qavatlar maydoni 819 809.6 m². 6 664 ta xonadon, 22 148 ta aholi.</div>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#E87060;"></div>
+        <div>
+          <div class="legend-title" data-i="leg2_t">Biznes markazlari</div>
+          <div class="legend-desc" data-i="leg2_d">2 ta biznes markaz. Umumiy maydoni 246 328.8 m². Ofis, savdo va xizmat ko'rsatish zonalari.</div>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#4A7A5A;"></div>
+        <div>
+          <div class="legend-title" data-i="leg3_t">Maktab binosi</div>
+          <div class="legend-desc" data-i="leg3_d">4 qavatli maktab. Qurilish maydoni 1 719.3 m², umumiy qavatlar maydoni 6 877.2 m².</div>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#90C860;"></div>
+        <div>
+          <div class="legend-title" data-i="leg4_t">MTM binosi (Bog'cha)</div>
+          <div class="legend-desc" data-i="leg4_d">2 qavatli MTM. Qurilish maydoni 951.5 m², umumiy qavatlar maydoni 1 903 m².</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-eyebrow" data-i="proj_tag">Amalga oshirilgan loyihalar</div>
+  <h2 class="sec-title" data-i="proj_title">Bizning <em>tajribamiz</em></h2>
+  <p class="sec-lead" data-i="proj_lead">Uchtepa City qurilishidan oldin biz Toshkentning eng yirik rekonstruksiya loyihalarini muvaffaqiyatli amalga oshirdik.</p>
+
+  <!-- OBC -->
+  <div class="proj-block">
+    <div class="proj-header">
+      <div>
+        <div class="proj-eyebrow" data-i="proj1_tag">Завершён · 2022</div>
+        <h3 class="proj-name">Olmazor Business City</h3>
+      </div>
+      <div class="proj-area-badge">23 <span>Ga</span></div>
+    </div>
+    <div class="compare-wrap" id="cmp-obc">
+      <div class="compare-before">
+        <img src="obc_before.png" alt="OBC before">
+        <span class="compare-label before-label" data-i="lbl_before">Oldin</span>
+      </div>
+      <div class="compare-after">
+        <img src="obc_after.png" alt="OBC after">
+        <span class="compare-label after-label" data-i="lbl_after">Keyin</span>
+      </div>
+      <div class="compare-slider" id="sl-obc">
+        <div class="compare-handle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p class="proj-desc" data-i="proj1_desc">23 gektar maydonida eski va buzilgan binolar qulandi. O'rniga zamonaviy biznes markazi va turar-joy majmuasi qurildi.</p>
+  </div>
+
+  <!-- YBC -->
+  <div class="proj-block">
+    <div class="proj-header">
+      <div>
+        <div class="proj-eyebrow" data-i="proj2_tag">Завершён · 2023</div>
+        <h3 class="proj-name">Yunusobod Business City</h3>
+      </div>
+      <div class="proj-area-badge">44.5 <span>Ga</span></div>
+    </div>
+    <div class="compare-wrap" id="cmp-ybc">
+      <div class="compare-before">
+        <img src="ybc_before.png" alt="YBC before">
+        <span class="compare-label before-label" data-i="lbl_before">Oldin</span>
+      </div>
+      <div class="compare-after">
+        <img src="ybc_after.png" alt="YBC after">
+        <span class="compare-label after-label" data-i="lbl_after">Keyin</span>
+      </div>
+      <div class="compare-slider" id="sl-ybc">
+        <div class="compare-handle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p class="proj-desc" data-i="proj2_desc">44.5 gektar — Toshkentdagi eng yirik rekonstruksiya loyihalaridan biri. Eski mahalla to'liq yangilandi.</p>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- PRICE -->
+<section id="price">
+  <div class="sec-eyebrow" data-i="price_tag">Narxlar</div>
+  <h2 class="sec-title" data-i="price_title">Investitsiya <em>qiymati</em></h2>
+  <p class="sec-lead" data-i="price_lead">Raqobatbardosh narxlar va moslashuvchan to'lov shartlari bilan investorlar uchun eng qulay sharoitlar.</p>
+
+  <div class="price-grid">
+    <div class="price-card featured">
+      <div class="price-type" data-i="p1_type">Butun loyiha</div>
+      <div class="price-amount"><sup>$</sup>— <span style="font-size:18px;color:var(--gold3)" data-i="p1_neg">Kelishiladi</span></div>
+      <div class="price-desc" data-i="p1_desc">Barcha 15 ta lot va infratuzilma bilan birga 19.4 ga yer uchastkasining to'liq narxi. Strategik investitsiya uchun ideal.</div>
+      <a href="#contacts" class="price-link" data-i="p_req">So'rov yuborish →</a>
+    </div>
+    <div class="price-card">
+      <div class="price-type" data-i="p2_type">1 m² narxi (o'rtacha)</div>
+      <div class="price-amount"><sup>$</sup>— <span style="font-size:18px;color:var(--gold3)" data-i="p2_neg">Kelishiladi</span></div>
+      <div class="price-desc" data-i="p2_desc">Lotning joylashuvi va maqsadiga qarab kvadrat metr narxi. Aniq narx har bir lot uchun alohida kelishiladi.</div>
+      <a href="#contacts" class="price-link" data-i="p_ask">Lot narxini so'rash →</a>
+    </div>
+    <div class="price-card">
+      <div class="price-type" data-i="p3_type">Minimal lot (№4)</div>
+      <div class="price-amount"><sup>$</sup>— <span style="font-size:18px;color:var(--gold3)" data-i="p3_neg">Kelishiladi</span></div>
+      <div class="price-desc" data-i="p3_desc">Eng kichik lot — №4 (5 871.2 m², Turar-joy binosi). Kichik va o'rta investorlar uchun qulay kirish nuqtasi.</div>
+      <a href="#contacts" class="price-link" data-i="p_info">Batafsil ma'lumot →</a>
+    </div>
+  </div>
+
+  <div class="comp-section">
+    <div class="comp-title-sm" data-i="comp_title">Qo'shni developerlarning o'rtacha narxi (m² / $)</div>
+    <div class="comp-grid">
+      <div class="comp-card"><div class="comp-name">Tashkent City</div><div class="comp-val">$5 200 <span class="comp-unit">/m²</span></div></div>
+      <div class="comp-card"><div class="comp-name">New Tashkent</div><div class="comp-val">$4 800 <span class="comp-unit">/m²</span></div></div>
+      <div class="comp-card"><div class="comp-name">Aqmarshal</div><div class="comp-val">$4 100 <span class="comp-unit">/m²</span></div></div>
+      <div class="comp-card our-price"><div class="comp-name" data-i="our_price">Bizning narx</div><div class="comp-val" data-i="our_val">Kelishiladi</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-eyebrow" data-i="about_tag">Biz haqimizda</div>
+  <h2 class="sec-title" data-i="about_title">Bizning <em>tarix</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p data-i="ab1"><strong>Uchtepa City</strong> — bu faqat qurilish loyihasi emas. Bu yillar davomida Toshkentning shahar muhitini o'zgartirish bo'yicha tajriba to'plagan jamoa natijasidir.</p>
+      <p data-i="ab2">Kompaniyamiz ixtisoslashgan qurilish va rekonstruksiya sohasida faoliyat yuritib, eski va buzilgan uy-joylarni qulash hamda yangi zamonaviy binolar qurish bo'yicha katta tajribaga ega.</p>
+      <p data-i="ab3">Har bir loyihada biz qurilish sifatiga, ekologik me'yorlarga va mahalliy aholi manfaatlariga alohida e'tibor beramiz. <strong>Uchtepa City</strong> — bizning eng yirik va eng obro'li loyihamiz.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">2010</div><div><div class="tl-title" data-i="t1t">Kompaniya tashkil etildi</div><div class="tl-desc" data-i="t1d">Toshkent shahrida qurilish va qayta qurish bo'yicha ixtisoslashgan firma ochildi.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2013</div><div><div class="tl-title" data-i="t2t">Birinchi yirik loyiha</div><div class="tl-desc" data-i="t2d">Yunusobod tumanida eski uy-joylar qulandi, o'rniga zamonaviy ko'p qavatli binolar qurildi.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2017</div><div><div class="tl-title" data-i="t3t">Mirzo Ulug'bek loyihasi</div><div class="tl-desc" data-i="t3d">Mirzo Ulug'bek tumanida eski binolar qulandi, yangi tijorat majmuasi qurildi.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2020</div><div><div class="tl-title" data-i="t4t">Xalqaro sheriklar</div><div class="tl-desc" data-i="t4d">Janubiy Koreya va BAA investitsiya kompaniyalari bilan hamkorlik shartnomasi imzolandi.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2024</div><div><div class="tl-title" data-i="t5t">Uchtepa City boshlandi</div><div class="tl-desc" data-i="t5d">Eng yirik loyiha rasmiy e'lon qilindi. Yer uchastkasi hujjatlari rasmiylashtirilib, loyihalash ishlari boshlandi.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="sec-eyebrow" data-i="con_tag">Kontaktlar</div>
+  <h2 class="sec-title" data-i="con_title"><em>Bog'lanish</em></h2>
+  <p class="sec-lead" data-i="con_lead">Investitsiya bo'yicha barcha savollar, lot tanlash va muzokaralar uchun to'g'ridan-to'g'ri rahbariyat bilan bog'laning.</p>
+  <div class="contacts-grid">
+    <div class="contact-card">
+      <div class="c-role" data-i="role_dir">Direktor</div>
+      <div class="c-name">— —</div>
+      <div class="c-item"><span class="c-icon">📞</span><a href="tel:+998000000000">+998 00 000-00-00</a></div>
+      <div class="c-item"><span class="c-icon">✉</span><a href="mailto:director@uchtepa.uz">director@uchtepa.uz</a></div>
+      <div class="c-item"><span class="c-icon">💬</span><a href="https://t.me/" target="_blank">Telegram</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="c-role" data-i="role_dep">Direktor o'rinbosari</div>
+      <div class="c-name">— —</div>
+      <div class="c-item"><span class="c-icon">📞</span><a href="tel:+998000000000">+998 00 000-00-00</a></div>
+      <div class="c-item"><span class="c-icon">✉</span><a href="mailto:deputy@uchtepa.uz">deputy@uchtepa.uz</a></div>
+      <div class="c-item"><span class="c-icon">💬</span><a href="https://t.me/" target="_blank">Telegram</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <img src="logo_dark.png"  class="ft-logo logo-dark"  alt="Uchtepa">
+    <img src="logo_light.png" class="ft-logo logo-light" alt="Uchtepa">
+    <div class="socials">
+      <a href="https://instagram.com" target="_blank" class="soc" title="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://t.me" target="_blank" class="soc" title="Telegram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 2.4a2.2 2.2 0 0 0-1 .2L3.7 9.6a2.25 2.25 0 0 0 .3 4.3l4.2 1.3 2.1 6.3a2.25 2.25 0 0 0 4.2-.5l.9-3.4 4.5 3.4a2.25 2.25 0 0 0 3.5-1.7V4.5a2.25 2.25 0 0 0-2.2-2.1z"/></svg>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="soc" title="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2024 Uchtepa — Yangi Zamonaviy Markazi. <span data-i="ft_rights">Barcha huquqlar himoyalangan.</span></span>
+    <div class="ft-links">
+      <a href="#indicators" data-i="nav_ind">Ko'rsatkichlar</a>
+      <a href="#lots"       data-i="nav_lots">Lotlar</a>
+      <a href="#price"      data-i="nav_price">Narxlar</a>
+      <a href="#contacts"   data-i="nav_contacts">Kontaktlar</a>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="lang.js"></script>
+<script>
+// Header scroll hide
+let lastY=0;
+window.addEventListener('scroll',()=>{
+  const h=document.getElementById('hdr');
+  const y=window.scrollY;
+  h.style.transform=(y>lastY&&y>80)?'translateY(-100%)':'translateY(0)';
+  lastY=y;
+},{passive:true});
+
+function toggleTheme(){
+  const html=document.documentElement;
+  const dark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('themeBtn').textContent=dark?'☾':'☀';
+}
+function toggleMenu(){
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+</script>
+
+<script src="projects.js"></script>
+<script>
+// ===== BEFORE/AFTER SLIDER =====
+function initCompare(wrapId, sliderId) {
+  const wrap = document.getElementById(wrapId);
+  const slider = document.getElementById(sliderId);
+  const after = wrap.querySelector('.compare-after');
+  if (!wrap) return;
+  let dragging = false;
+
+  function setPos(x) {
+    const rect = wrap.getBoundingClientRect();
+    let pct = Math.max(0, Math.min(100, (x - rect.left) / rect.width * 100));
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    slider.style.left = pct + '%';
+  }
+
+  wrap.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup', () => dragging = false);
+  wrap.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchend', () => dragging = false);
+}
+initCompare('cmp-obc', 'sl-obc');
+initCompare('cmp-ybc', 'sl-ybc');
+</script>
+
+</body>
+</html>
