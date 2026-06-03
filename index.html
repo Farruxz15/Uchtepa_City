@@ -379,32 +379,9 @@ footer{
 
 /* ===== FUTURE ===== */
 #future{background:var(--bg);}
-.future-videos{display:grid;grid-template-columns:1fr 280px;gap:16px;margin-bottom:48px;}
+.future-videos{margin-bottom:48px;}
 .fv-main{position:relative;background:#000;overflow:hidden;aspect-ratio:16/9;}
 .fv-main video{width:100%;height:100%;object-fit:cover;display:block;}
-.fv-main-overlay{position:absolute;bottom:16px;right:16px;}
-.fv-mute-btn{
-  background:rgba(0,0,0,0.6);border:0.5px solid rgba(255,255,255,0.2);
-  color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;
-  font-size:16px;display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s;
-}
-.fv-mute-btn:hover{background:rgba(201,168,76,0.7);}
-.fv-thumbs{display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:100%;}
-.fv-thumb{
-  position:relative;cursor:pointer;overflow:hidden;
-  border:1.5px solid transparent;transition:border-color 0.2s;
-  aspect-ratio:16/9;background:#000;flex-shrink:0;
-}
-.fv-thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
-.fv-thumb.active{border-color:var(--gold);}
-.fv-thumb:hover{border-color:var(--gold3);}
-.fv-thumb-label{
-  position:absolute;bottom:4px;left:6px;
-  font-size:9px;letter-spacing:0.10em;text-transform:uppercase;
-  color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);
-  padding:2px 7px;border-radius:1px;
-}
 
 /* Image gallery */
 .future-gallery{
@@ -440,9 +417,6 @@ footer{
   cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;
 }
 @media(max-width:900px){
-  .future-videos{grid-template-columns:1fr;}
-  .fv-thumbs{flex-direction:row;overflow-x:auto;max-height:none;}
-  .fv-thumb{min-width:140px;}
   .future-gallery{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:600px){
@@ -574,7 +548,7 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="w1.png">
-    <source src="v1.mp4" type="video/mp4">
+    <source src="future.mp4" type="video/mp4">
   </video>
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -930,41 +904,12 @@ footer{
   <h2 class="sec-title" data-i="fut_title">Loyihaning <em>kelajagi</em></h2>
   <p class="sec-lead" data-i="fut_lead">Uchtepa City qanday ko'rinishda bo'lishini tasavvur qiling — video va vizualizatsiyalar orqali.</p>
 
-  <!-- Video Gallery -->
+  <!-- Video -->
   <div class="future-videos">
     <div class="fv-main">
-      <video id="mainVideo" autoplay muted loop playsinline>
-        <source src="v1.mp4" type="video/mp4">
+      <video id="mainVideo" autoplay muted loop playsinline controls preload="metadata">
+        <source src="future.mp4" type="video/mp4">
       </video>
-      <div class="fv-main-overlay">
-        <button class="fv-mute-btn" onclick="toggleMute()" id="muteBtn">🔇</button>
-      </div>
-    </div>
-    <div class="fv-thumbs">
-      <div class="fv-thumb active" onclick="playVideo('v1.mp4', this)">
-        <video src="v1.mp4" muted></video>
-        <span class="fv-thumb-label">Video 1</span>
-      </div>
-      <div class="fv-thumb" onclick="playVideo('v2.mp4', this)">
-        <video src="v2.mp4" muted></video>
-        <span class="fv-thumb-label">Video 2</span>
-      </div>
-      <div class="fv-thumb" onclick="playVideo('V3.mp4', this)">
-        <video src="V3.mp4" muted></video>
-        <span class="fv-thumb-label">Video 3</span>
-      </div>
-      <div class="fv-thumb" onclick="playVideo('V4.mp4', this)">
-        <video src="V4.mp4" muted></video>
-        <span class="fv-thumb-label">Video 4</span>
-      </div>
-      <div class="fv-thumb" onclick="playVideo('V5.mp4', this)">
-        <video src="V5.mp4" muted></video>
-        <span class="fv-thumb-label">Video 5</span>
-      </div>
-      <div class="fv-thumb" onclick="playVideo('V6.mp4', this)">
-        <video src="V6.mp4" muted></video>
-        <span class="fv-thumb-label">Video 6</span>
-      </div>
     </div>
   </div>
 
@@ -1149,19 +1094,6 @@ initCompare('cmp-ybc', 'sl-ybc');
 
 
 <script>
-function playVideo(src, thumb) {
-  const main = document.getElementById('mainVideo');
-  main.src = src;
-  main.play();
-  document.querySelectorAll('.fv-thumb').forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
-}
-function toggleMute() {
-  const v = document.getElementById('mainVideo');
-  const btn = document.getElementById('muteBtn');
-  v.muted = !v.muted;
-  btn.textContent = v.muted ? '🔇' : '🔊';
-}
 function openLightbox(src) {
   document.getElementById('lbImg').src = src;
   document.getElementById('lightbox').classList.add('open');
