@@ -25,7 +25,7 @@
   --text2: #8A92A3;
   --text3: #4A5268;
   --radius: 3px;
-  --logo: url('Logo_dark.png');
+  --logo: url('logo_dark.png');
 }
 [data-theme="light"] {
   --bg:    #F4F5F8;
@@ -38,7 +38,7 @@
   --navy:  #0D1B3E;
   --silver: #3A4A6E;
   --silver2: #6A7490;
-  --logo: url('Logo_light.png');
+  --logo: url('logo_light.png');
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -534,8 +534,8 @@ footer{
 <!-- HEADER -->
 <header id="hdr">
   <a href="#">
-    <img src="Logo_dark.png"  class="logo-img logo-dark"  alt="Uchtepa">
-    <img src="Logo_light.png" class="logo-img logo-light" alt="Uchtepa">
+    <img src="logo_dark.png"  class="logo-img logo-dark"  alt="Uchtepa">
+    <img src="logo_light.png" class="logo-img logo-light" alt="Uchtepa">
   </a>
   <nav>
     <a href="#indicators" data-i="nav_ind">Ko'rsatkichlar</a>
@@ -573,7 +573,7 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="w1.png">
+  <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="w1.png">
     <source src="v1.mp4" type="video/mp4">
   </video>
   <div class="hero-bg"></div>
@@ -899,15 +899,6 @@ footer{
     </div>
   </div>
 
-  <div class="comp-section">
-    <div class="comp-title-sm" data-i="comp_title">Qo'shni developerlarning o'rtacha narxi (m² / $)</div>
-    <div class="comp-grid">
-      <div class="comp-card"><div class="comp-name">Tashkent City</div><div class="comp-val">$5 200 <span class="comp-unit">/m²</span></div></div>
-      <div class="comp-card"><div class="comp-name">New Tashkent</div><div class="comp-val">$4 800 <span class="comp-unit">/m²</span></div></div>
-      <div class="comp-card"><div class="comp-name">Aqmarshal</div><div class="comp-val">$4 100 <span class="comp-unit">/m²</span></div></div>
-      <div class="comp-card our-price"><div class="comp-name" data-i="our_price">Bizning narx</div><div class="comp-val" data-i="our_val">Kelishiladi</div></div>
-    </div>
-  </div>
 </section>
 
 <hr class="div">
@@ -1072,8 +1063,8 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="ft-top">
-    <img src="Logo_dark.png"  class="ft-logo logo-dark"  alt="Uchtepa">
-    <img src="Logo_light.png" class="ft-logo logo-light" alt="Uchtepa">
+    <img src="logo_dark.png"  class="ft-logo logo-dark"  alt="Uchtepa">
+    <img src="logo_light.png" class="ft-logo logo-light" alt="Uchtepa">
     <div class="socials">
       <a href="https://instagram.com" target="_blank" class="soc" title="Instagram">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1118,6 +1109,15 @@ function toggleTheme(){
 function toggleMenu(){
   document.getElementById('mobMenu').classList.toggle('open');
 }
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const heroVideo=document.getElementById('heroVideo');
+  if(heroVideo){
+    heroVideo.muted=true;
+    const playPromise=heroVideo.play();
+    if(playPromise&&playPromise.catch) playPromise.catch(()=>{});
+  }
+});
 </script>
 
 <script src="projects.js"></script>
