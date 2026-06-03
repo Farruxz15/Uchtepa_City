@@ -98,13 +98,12 @@ nav a:hover{color:var(--gold2);}
     radial-gradient(ellipse 70% 60% at 65% 30%, rgba(13,27,62,0.0) 0%, transparent 70%),
     linear-gradient(180deg, rgba(8,14,31,0) 40%, rgba(8,14,31,0.95) 100%);
 }
-.hero-map{
+.hero-video{
   position:absolute;inset:0;z-index:0;
-  background:url('masterplan.png') center/cover no-repeat;
-  opacity:0.18;
-  filter:grayscale(30%);
+  width:100%;height:100%;object-fit:cover;
+  opacity:0.22;filter:grayscale(20%);
 }
-[data-theme="light"] .hero-map{opacity:0.12;}
+[data-theme="light"] .hero-video{opacity:0.15;}
 .hero-content{position:relative;z-index:1;max-width:680px;}
 .eyebrow{
   font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
@@ -377,6 +376,79 @@ footer{
 }
 @media(max-width:600px){.compare-wrap{height:260px;}}
 
+
+/* ===== FUTURE ===== */
+#future{background:var(--bg);}
+.future-videos{display:grid;grid-template-columns:1fr 280px;gap:16px;margin-bottom:48px;}
+.fv-main{position:relative;background:#000;overflow:hidden;aspect-ratio:16/9;}
+.fv-main video{width:100%;height:100%;object-fit:cover;display:block;}
+.fv-main-overlay{position:absolute;bottom:16px;right:16px;}
+.fv-mute-btn{
+  background:rgba(0,0,0,0.6);border:0.5px solid rgba(255,255,255,0.2);
+  color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;
+  font-size:16px;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.fv-mute-btn:hover{background:rgba(201,168,76,0.7);}
+.fv-thumbs{display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:100%;}
+.fv-thumb{
+  position:relative;cursor:pointer;overflow:hidden;
+  border:1.5px solid transparent;transition:border-color 0.2s;
+  aspect-ratio:16/9;background:#000;flex-shrink:0;
+}
+.fv-thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+.fv-thumb.active{border-color:var(--gold);}
+.fv-thumb:hover{border-color:var(--gold3);}
+.fv-thumb-label{
+  position:absolute;bottom:4px;left:6px;
+  font-size:9px;letter-spacing:0.10em;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);
+  padding:2px 7px;border-radius:1px;
+}
+
+/* Image gallery */
+.future-gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+}
+.fg-item{
+  position:relative;overflow:hidden;cursor:pointer;
+  aspect-ratio:16/9;background:var(--bg3);
+}
+.fg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+.fg-item:hover img{transform:scale(1.04);}
+.fg-overlay{
+  position:absolute;inset:0;background:rgba(201,168,76,0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.3s;
+}
+.fg-item:hover .fg-overlay{background:rgba(201,168,76,0.15);}
+.fg-overlay span{font-size:28px;color:#fff;opacity:0;transition:opacity 0.3s;font-weight:300;}
+.fg-item:hover .fg-overlay span{opacity:1;}
+
+/* Lightbox */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,0.92);align-items:center;justify-content:center;
+  cursor:zoom-out;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border:0.5px solid var(--border);}
+.lb-close{
+  position:absolute;top:24px;right:24px;
+  background:none;border:0.5px solid rgba(255,255,255,0.2);
+  color:#fff;width:40px;height:40px;border-radius:50%;
+  cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;
+}
+@media(max-width:900px){
+  .future-videos{grid-template-columns:1fr;}
+  .fv-thumbs{flex-direction:row;overflow-x:auto;max-height:none;}
+  .fv-thumb{min-width:140px;}
+  .future-gallery{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .future-gallery{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
@@ -390,6 +462,7 @@ footer{
   <nav>
     <a href="#indicators" data-i="nav_ind">Ko'rsatkichlar</a>
     <a href="#projects" data-i="nav_proj">Loyihalar</a>
+    <a href="#future" data-i="nav_fut">Kelajak</a>
     <a href="#lots"       data-i="nav_lots">Lotlar</a>
     <a href="#price"      data-i="nav_price">Narxlar</a>
     <a href="#about"      data-i="nav_about">Biz haqimizda</a>
@@ -411,6 +484,7 @@ footer{
 <div class="mob-menu" id="mobMenu">
   <a href="#indicators" onclick="toggleMenu()" data-i="nav_ind">Ko'rsatkichlar</a>
   <a href="#projects" onclick="toggleMenu()" data-i="nav_proj">Loyihalar</a>
+  <a href="#future" onclick="toggleMenu()" data-i="nav_fut">Kelajak</a>
   <a href="#lots"       onclick="toggleMenu()" data-i="nav_lots">Lotlar</a>
   <a href="#price"      onclick="toggleMenu()" data-i="nav_price">Narxlar</a>
   <a href="#about"      onclick="toggleMenu()" data-i="nav_about">Biz haqimizda</a>
@@ -419,7 +493,9 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-map"></div>
+  <video class="hero-video" autoplay muted loop playsinline poster="w1.png">
+    <source src="v1.mp4" type="video/mp4">
+  </video>
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="eyebrow" data-i="hero_tag">Investitsiya loyihasi • Toshkent, Uchtepa tumani</div>
@@ -736,7 +812,7 @@ footer{
       <p data-i="ab3">Har bir loyihada biz qurilish sifatiga, ekologik me'yorlarga va mahalliy aholi manfaatlariga alohida e'tibor beramiz. <strong>Uchtepa City</strong> — bizning eng yirik va eng obro'li loyihamiz.</p>
     </div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-year">2010</div><div><div class="tl-title" data-i="t1t">Kompaniya tashkil etildi</div><div class="tl-desc" data-i="t1d">Toshkent shahrida qurilish va qayta qurish bo'yicha ixtisoslashgan firma ochildi.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2018</div><div><div class="tl-title" data-i="t1t">Kompaniya tashkil etildi</div><div class="tl-desc" data-i="t1d">Toshkent shahrida qurilish va qayta qurish bo'yicha ixtisoslashgan firma ochildi.</div></div></div>
       <div class="tl-item"><div class="tl-year">2013</div><div><div class="tl-title" data-i="t2t">Birinchi yirik loyiha</div><div class="tl-desc" data-i="t2d">Yunusobod tumanida eski uy-joylar qulandi, o'rniga zamonaviy ko'p qavatli binolar qurildi.</div></div></div>
       <div class="tl-item"><div class="tl-year">2017</div><div><div class="tl-title" data-i="t3t">Mirzo Ulug'bek loyihasi</div><div class="tl-desc" data-i="t3d">Mirzo Ulug'bek tumanida eski binolar qulandi, yangi tijorat majmuasi qurildi.</div></div></div>
       <div class="tl-item"><div class="tl-year">2020</div><div><div class="tl-title" data-i="t4t">Xalqaro sheriklar</div><div class="tl-desc" data-i="t4d">Janubiy Koreya va BAA investitsiya kompaniyalari bilan hamkorlik shartnomasi imzolandi.</div></div></div>
@@ -744,6 +820,69 @@ footer{
     </div>
   </div>
 </section>
+
+<hr class="div">
+
+<!-- FUTURE -->
+<section id="future">
+  <div class="sec-eyebrow" data-i="fut_tag">Uchtepa City — Kelajak</div>
+  <h2 class="sec-title" data-i="fut_title">Loyihaning <em>kelajagi</em></h2>
+  <p class="sec-lead" data-i="fut_lead">Uchtepa City qanday ko'rinishda bo'lishini tasavvur qiling — video va vizualizatsiyalar orqali.</p>
+
+  <!-- Video Gallery -->
+  <div class="future-videos">
+    <div class="fv-main">
+      <video id="mainVideo" autoplay muted loop playsinline>
+        <source src="v1.mp4" type="video/mp4">
+      </video>
+      <div class="fv-main-overlay">
+        <button class="fv-mute-btn" onclick="toggleMute()" id="muteBtn">🔇</button>
+      </div>
+    </div>
+    <div class="fv-thumbs">
+      <div class="fv-thumb active" onclick="playVideo('v1.mp4', this)">
+        <video src="v1.mp4" muted></video>
+        <span class="fv-thumb-label">Video 1</span>
+      </div>
+      <div class="fv-thumb" onclick="playVideo('v2.mp4', this)">
+        <video src="v2.mp4" muted></video>
+        <span class="fv-thumb-label">Video 2</span>
+      </div>
+      <div class="fv-thumb" onclick="playVideo('V3.mp4', this)">
+        <video src="V3.mp4" muted></video>
+        <span class="fv-thumb-label">Video 3</span>
+      </div>
+      <div class="fv-thumb" onclick="playVideo('V4.mp4', this)">
+        <video src="V4.mp4" muted></video>
+        <span class="fv-thumb-label">Video 4</span>
+      </div>
+      <div class="fv-thumb" onclick="playVideo('V5.mp4', this)">
+        <video src="V5.mp4" muted></video>
+        <span class="fv-thumb-label">Video 5</span>
+      </div>
+      <div class="fv-thumb" onclick="playVideo('V6.mp4', this)">
+        <video src="V6.mp4" muted></video>
+        <span class="fv-thumb-label">Video 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Gallery w1-w6 -->
+  <div class="future-gallery">
+    <div class="fg-item" onclick="openLightbox('w1.png')"><img src="w1.png" alt="Uchtepa City visualization 1"><div class="fg-overlay"><span>+</span></div></div>
+    <div class="fg-item" onclick="openLightbox('w2.png')"><img src="w2.png" alt="Uchtepa City visualization 2"><div class="fg-overlay"><span>+</span></div></div>
+    <div class="fg-item" onclick="openLightbox('w3.png')"><img src="w3.png" alt="Uchtepa City visualization 3"><div class="fg-overlay"><span>+</span></div></div>
+    <div class="fg-item" onclick="openLightbox('w4.png')"><img src="w4.png" alt="Uchtepa City visualization 4"><div class="fg-overlay"><span>+</span></div></div>
+    <div class="fg-item" onclick="openLightbox('w5.png')"><img src="w5.png" alt="Uchtepa City visualization 5"><div class="fg-overlay"><span>+</span></div></div>
+    <div class="fg-item" onclick="openLightbox('w6.png')"><img src="w6.png" alt="Uchtepa City visualization 6"><div class="fg-overlay"><span>+</span></div></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lbImg" src="" alt="">
+</div>
 
 <hr class="div">
 
@@ -755,10 +894,10 @@ footer{
   <div class="contacts-grid">
     <div class="contact-card">
       <div class="c-role" data-i="role_dir">Direktor</div>
-      <div class="c-name">— —</div>
-      <div class="c-item"><span class="c-icon">📞</span><a href="tel:+998000000000">+998 00 000-00-00</a></div>
+      <div class="c-name">Умаров Умид<br>Ахмаджанович</div>
+      <div class="c-item"><span class="c-icon">📞</span><a href="tel:+998977110099">+998 97 711-00-99</a></div>
       <div class="c-item"><span class="c-icon">✉</span><a href="mailto:director@uchtepa.uz">director@uchtepa.uz</a></div>
-      <div class="c-item"><span class="c-icon">💬</span><a href="https://t.me/" target="_blank">Telegram</a></div>
+      <div class="c-item"><span class="c-icon">💬</span><a href="https://t.me/umarov_umid" target="_blank">@umarov_umid</a></div>
     </div>
     <div class="contact-card">
       <div class="c-role" data-i="role_dep">Direktor o'rinbosari</div>
@@ -847,6 +986,33 @@ function initCompare(wrapId, sliderId) {
 }
 initCompare('cmp-obc', 'sl-obc');
 initCompare('cmp-ybc', 'sl-ybc');
+</script>
+
+
+<script>
+function playVideo(src, thumb) {
+  const main = document.getElementById('mainVideo');
+  main.src = src;
+  main.play();
+  document.querySelectorAll('.fv-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+function toggleMute() {
+  const v = document.getElementById('mainVideo');
+  const btn = document.getElementById('muteBtn');
+  v.muted = !v.muted;
+  btn.textContent = v.muted ? '🔇' : '🔊';
+}
+function openLightbox(src) {
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
 </script>
 
 </body>

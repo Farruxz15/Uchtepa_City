@@ -1,6 +1,9 @@
 const T = {
 uz:{
   nav_ind:"Ko'rsatkichlar",nav_lots:"Lotlar",nav_price:"Narxlar",nav_about:"Biz haqimizda",nav_contacts:"Kontaktlar",
+    nav_fut:"Kelajak",
+  fut_tag:"Uchtepa City — Kelajak",fut_title:"Loyihaning kelajagi",fut_lead:"Uchtepa City qanday ko'rinishda bo'lishini tasavvur qiling — video va vizualizatsiyalar orqali.",
+  t1t:"Kompaniya tashkil etildi",t1d:"2018 yilda Olmazor Business City loyihasi bilan faoliyatimiz boshlandi.",
     nav_proj:"Loyihalar",
   proj_tag:"Amalga oshirilgan loyihalar",proj_title:"Bizning tajribamiz",
   proj_lead:"Uchtepa City qurilishidan oldin biz Toshkentning eng yirik rekonstruksiya loyihalarini muvaffaqiyatli amalga oshirdik.",
@@ -52,6 +55,9 @@ uz:{
 },
 ru:{
   nav_ind:"Показатели",nav_lots:"Лоты",nav_price:"Цены",nav_about:"О нас",nav_contacts:"Контакты",
+    nav_fut:"Будущее",
+  fut_tag:"Uchtepa City — Будущее",fut_title:"Будущее проекта",fut_lead:"Представьте, как будет выглядеть Uchtepa City — через видео и визуализации.",
+  t1t:"Основание компании",t1d:"В 2018 году начали деятельность с проекта Olmazor Business City.",
     nav_proj:"Проекты",
   proj_tag:"Реализованные проекты",proj_title:"Наш опыт",
   proj_lead:"До начала строительства Uchtepa City мы успешно реализовали крупнейшие проекты реконструкции Ташкента.",
@@ -103,6 +109,9 @@ ru:{
 },
 en:{
   nav_ind:"Indicators",nav_lots:"Lots",nav_price:"Pricing",nav_about:"About",nav_contacts:"Contacts",
+    nav_fut:"Future",
+  fut_tag:"Uchtepa City — Future",fut_title:"The Future of the Project",fut_lead:"Imagine what Uchtepa City will look like — through videos and visualisations.",
+  t1t:"Company Founded",t1d:"In 2018 we began our activity with the Olmazor Business City project.",
     nav_proj:"Projects",
   proj_tag:"Completed Projects",proj_title:"Our Experience",
   proj_lead:"Before Uchtepa City, we successfully completed the largest urban reconstruction projects in Tashkent.",
@@ -154,6 +163,9 @@ en:{
 },
 vi:{
   nav_ind:"Chỉ số",nav_lots:"Lô đất",nav_price:"Giá cả",nav_about:"Về chúng tôi",nav_contacts:"Liên hệ",
+    nav_fut:"Tương lai",
+  fut_tag:"Uchtepa City — Tương lai",fut_title:"Tương lai của dự án",fut_lead:"Hãy hình dung Uchtepa City sẽ trông như thế nào — qua video và hình ảnh trực quan.",
+  t1t:"Thành lập công ty",t1d:"Năm 2018 chúng tôi bắt đầu hoạt động với dự án Olmazor Business City.",
     nav_proj:"Dự án",
   proj_tag:"Dự án đã hoàn thành",proj_title:"Kinh nghiệm của chúng tôi",
   proj_lead:"Trước Uchtepa City, chúng tôi đã hoàn thành thành công các dự án tái thiết đô thị lớn nhất Tashkent.",
