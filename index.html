@@ -484,6 +484,49 @@ footer{
 .faq-note{font-size:11px;color:var(--text3);margin-top:16px;font-style:italic;}
 @media(max-width:900px){.faq-grid{grid-template-columns:1fr;}}
 
+
+/* ===== ADVANTAGES ===== */
+#advantages{background:var(--bg);}
+.adv-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  border:0.5px solid var(--border);
+}
+.adv-card{
+  background:var(--bg2);padding:32px 28px;
+  border:0.5px solid var(--border);
+  transition:border-color 0.3s, background 0.3s;
+  position:relative;overflow:hidden;
+}
+.adv-card:hover{background:var(--bg3);border-color:var(--gold3);}
+.adv-card.adv-highlight::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:2px;background:var(--gold);
+}
+.adv-icon{font-size:28px;margin-bottom:14px;line-height:1;}
+.adv-title{font-size:14px;color:var(--text);font-weight:500;margin-bottom:10px;line-height:1.4;}
+.adv-desc{font-size:13px;color:var(--text2);line-height:1.75;}
+.adv-desc strong{color:var(--gold2);}
+.adv-card.adv-locations{grid-column:span 1;}
+
+/* Location list */
+.adv-locs{display:flex;flex-direction:column;gap:0;margin-top:12px;}
+.adv-loc{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:0.5px solid var(--border);
+  font-size:13px;
+}
+.adv-loc:last-child{border-bottom:none;}
+.loc-name{color:var(--text2);}
+.loc-dist{
+  color:var(--gold);font-family:"Cormorant Garamond",serif;
+  font-size:18px;font-weight:300;
+}
+
+@media(max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.adv-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -498,6 +541,7 @@ footer{
     <a href="#indicators" data-i="nav_ind">Ko'rsatkichlar</a>
     <a href="#projects" data-i="nav_proj">Loyihalar</a>
     <a href="#future" data-i="nav_fut">Kelajak</a>
+    <a href="#advantages" data-i="nav_adv">Afzalliklar</a>
     <a href="#faq" data-i="nav_faq">Savol-Javob</a>       data-i="nav_lots">Lotlar</a>
     <a href="#price"      data-i="nav_price">Narxlar</a>
     <a href="#about"      data-i="nav_about">Biz haqimizda</a>
@@ -520,6 +564,7 @@ footer{
   <a href="#indicators" onclick="toggleMenu()" data-i="nav_ind">Ko'rsatkichlar</a>
   <a href="#projects" onclick="toggleMenu()" data-i="nav_proj">Loyihalar</a>
   <a href="#future" onclick="toggleMenu()" data-i="nav_fut">Kelajak</a>
+  <a href="#advantages" onclick="toggleMenu()" data-i="nav_adv">Afzalliklar</a>
   <a href="#faq" onclick="toggleMenu()" data-i="nav_faq">Savol-Javob</a>       onclick="toggleMenu()" data-i="nav_lots">Lotlar</a>
   <a href="#price"      onclick="toggleMenu()" data-i="nav_price">Narxlar</a>
   <a href="#about"      onclick="toggleMenu()" data-i="nav_about">Biz haqimizda</a>
@@ -748,6 +793,80 @@ footer{
       </div>
     </div>
     <p class="proj-desc" data-i="proj2_desc">44.5 gektar — Toshkentdagi eng yirik rekonstruksiya loyihalaridan biri. Eski mahalla to'liq yangilandi.</p>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ADVANTAGES -->
+<section id="advantages">
+  <div class="sec-eyebrow" data-i="adv_tag">Nega Uchtepa City?</div>
+  <h2 class="sec-title" data-i="adv_title">Investitsiya <em>afzalliklari</em></h2>
+  <p class="sec-lead" data-i="adv_lead">Uchtepa City — investorlar uchun bir qator noyob strategik va huquqiy afzalliklarga ega loyiha.</p>
+
+  <div class="adv-grid">
+
+    <div class="adv-card adv-highlight">
+      <div class="adv-icon">🏗</div>
+      <h4 class="adv-title" data-i="adv1_t">Kommunikatsiyalar to'liq investor uchun</h4>
+      <p class="adv-desc" data-i="adv1_d">Barcha kommunikatsiyalar (suv, gaz, elektr, kanalizatsiya) investor tomonini qizil chizig'igacha dava boshqa to'lovlarsiz yetkaziladi.</p>
+    </div>
+
+    <div class="adv-card adv-highlight">
+      <div class="adv-icon">🏛</div>
+      <h4 class="adv-title" data-i="adv2_t">Davlat tomonidan to'liq qo'llab-quvvatlash</h4>
+      <p class="adv-desc" data-i="adv2_d">Loyiha O'zbekiston Respublikasi Vazirlar Mahkamasi qarorlari bilan mustahkamlangan. To'liq huquqiy himoya va davlat kafolati.</p>
+    </div>
+
+    <div class="adv-card adv-highlight">
+      <div class="adv-icon">🏢</div>
+      <h4 class="adv-title" data-i="adv3_t">30+ qavatli binolar qurish huquqi</h4>
+      <p class="adv-desc" data-i="adv3_d">Uchtepa City — Toshkentda 30 qavatdan baland binolar qurish mumkin bo'lgan kam sonli loyihalardan biri. FAR = 4.</p>
+    </div>
+
+    <div class="adv-card adv-highlight">
+      <div class="adv-icon">🚧</div>
+      <h4 class="adv-title" data-i="adv4_t">Snos direksiya tomonidan amalga oshiriladi</h4>
+      <p class="adv-desc" data-i="adv4_d">Turar-joy va noturar binolarni qulash ishlarini direksiya o'zi amalga oshiradi. Investor bu yukni o'z zimmasiga olmaydi.</p>
+    </div>
+
+    <div class="adv-card adv-highlight">
+      <div class="adv-icon">🟢</div>
+      <h4 class="adv-title" data-i="adv5_t">3 gektar erkin yer — darhol qurilish mumkin</h4>
+      <p class="adv-desc" data-i="adv5_d">Hozirda 3 gektar bo'sh yer mavjud bo'lib, snos va ko'chirishni kutmasdan darhol qurilishni boshlash imkonini beradi.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">💰</div>
+      <h4 class="adv-title" data-i="adv6_t">Qo'shni yerlar $1 100/m² — bizda $600/m²</h4>
+      <p class="adv-desc" data-i="adv6_d">Loyihadan 1.4 km uzoqlikdagi tayyor hujjatli yerlarda narx $1 100/m². Bizning loyihada o'rtacha narx — <strong>$600/m²</strong>.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">🌊</div>
+      <h4 class="adv-title" data-i="adv7_t">1.81 km qirg'oq liniyasi — Bozsuv kanali</h4>
+      <p class="adv-desc" data-i="adv7_d">Loyiha 1.81 km uzunlikdagi Bozsuv kanali qirg'og'i bo'ylab joylashgan. Issiq iqlimda suv yaqinidagi loyihalar ayniqsa istiqbolli.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">🌳</div>
+      <h4 class="adv-title" data-i="adv8_t">Toshkentning eng yashil tumanlaridan biri</h4>
+      <p class="adv-desc" data-i="adv8_d">Uchtepa tumani — ko'p yashilliklar, parklar va bog'lar bilan Toshkentdagi eng ekologik tumanlardan biri.</p>
+    </div>
+
+    <div class="adv-card adv-locations">
+      <div class="adv-icon">📍</div>
+      <h4 class="adv-title" data-i="adv9_t">Strategik joylashuv</h4>
+      <div class="adv-locs">
+        <div class="adv-loc"><span class="loc-name" data-i="loc1">Kichik halqa yo'li</span><span class="loc-dist" data-i="loc1d">Yaqinida</span></div>
+        <div class="adv-loc"><span class="loc-name" data-i="loc2">Tashkent City</span><span class="loc-dist">4 km</span></div>
+        <div class="adv-loc"><span class="loc-name" data-i="loc3">Xalqaro aeroport</span><span class="loc-dist">10 km</span></div>
+        <div class="adv-loc"><span class="loc-name" data-i="loc4">Markaziy vokzal</span><span class="loc-dist">11 km</span></div>
+        <div class="adv-loc"><span class="loc-name" data-i="loc5">Metro</span><span class="loc-dist">3.3 km</span></div>
+        <div class="adv-loc"><span class="loc-name" data-i="loc6" data-i="loc6">Qo'shni yer (hujjatli)</span><span class="loc-dist">1.4 km</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
