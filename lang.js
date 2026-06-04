@@ -21,7 +21,7 @@ uz:{
   faq_tag:"Asosiy savollarga javoblar",faq_title:"Loyiha haqida",
   faq_lead:"O'zbekiston Respublikasi Vazirlar Mahkamasi qarorlari asosida tayyorlangan javoblar.",
   faq1_t:"Hududni tozalash qiymati va muddati",faq1_d:"Hududni tozalash va tayyorlash bo'yicha umumiy xarajatlar <strong>$145.7 mln</strong>. Muddati — 9–12 oy.",faq1_l:"Huquqiy asos: VMQ №414 — 10 iyul 2024 yil",
-  faq2_t:"Investor xarajatlarini qoplash",faq2_d:"Avanslanган xarajatlarni qoplash keyingi muzokaralar bosqichida alohida qarz shartnomasi orqali tartibga solinadi.",faq2_l:"Huquqiy asos: VMQ №461 — 5 iyun 2019 yil (30-band)",
+  faq2_t:"Investor xarajatlarini qoplash",faq2_d:"Avanslanagan xarajatlarni qoplash keyingi muzokaralar bosqichida alohida qarz shartnomasi orqali tartibga solinadi.",faq2_l:"Huquqiy asos: VMQ №461 — 5 iyun 2019 yil (30-band)",
   faq3_t:"Qirg'oq parki va loyiha chegaralari",faq3_d:"Qirg'oq zonasi to'liq loyiha chegaralariga kiritilgan. Bozsuv kanali bo'ylab yashil alleya.",faq3_l:"Huquqiy asos: VMQ №414 — Bozsuv kanali va Foziltepa ko'chasi",
   faq4_t:"Yer foydalanish koeffitsienti (FAR)",faq4_d:"<strong>FAR = 4</strong>, o'rtacha 33 qavat, umumiy qurilish maydoni <strong>1.1 mln m²</strong>.",faq4_l:"Huquqiy asos: VMQ №83 — 28 fevral 2026 yil",
   faq5_t:"Loyiha hududining tarkibi",faq5_note:"* Master-plan ROX Group kompaniyasi tomonidan ishlab chiqilgan",
