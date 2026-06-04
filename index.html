@@ -356,7 +356,7 @@ footer{
 #cmp-ybc .compare-before img,#cmp-ybc .compare-after img{object-position:center 100%;}
 #cmp-yh .compare-before img,#cmp-yh .compare-after img{object-position:center 40%;}
 .compare-after{
-  clip-path:inset(0 50% 0 0);
+  clip-path:inset(0 0 0 50%);
   transition:clip-path 0.05s;
 }
 .compare-label{
@@ -1107,7 +1107,7 @@ function initCompare(wrapId, sliderId) {
   function setPos(x) {
     const rect = wrap.getBoundingClientRect();
     let pct = Math.max(0, Math.min(100, (x - rect.left) / rect.width * 100));
-    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    after.style.clipPath = `inset(0 0 0 ${pct}%)`;
     slider.style.left = pct + '%';
   }
 
