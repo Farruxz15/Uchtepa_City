@@ -1,6 +1,7 @@
 const T = {
 uz:{
   nav_ind:"Ko'rsatkichlar",nav_lots:"Lotlar",nav_price:"Narxlar",nav_about:"Biz haqimizda",nav_contacts:"Kontaktlar",
+    proj3_tag:"Faoliyatda · 2021",proj3_desc:"Prezident qarori asosida tashkil etilgan zamonaviy sanoat zonasi. O'zbekiston Respublikasi Bosh vaziri va Toshkent shahar hokimining ishonchi bilan bu loyiha bizning jamoamizga topshirildi.",
     t_yht:"Yangihayot Industrial Texnopark",t_yhd:"Prezident qarori asosida zamonaviy sanoat zonasi tashkil etildi. O'zbekiston Respublikasi Bosh vaziri va Toshkent shahar hokimining ishonchi bilan bu loyiha ham bizning jamoamizga topshirildi.",
     nav_adv:"Afzalliklar",
   adv_tag:"Nega Uchtepa City?",adv_title:"Investitsiya afzalliklari",
@@ -79,6 +80,7 @@ uz:{
 },
 ru:{
   nav_ind:"Показатели",nav_lots:"Лоты",nav_price:"Цены",nav_about:"О нас",nav_contacts:"Контакты",
+    proj3_tag:"В работе · 2021",proj3_desc:"Современная промышленная зона, основанная по постановлению Президента. По доверию Премьер-министра РУз и хакима города Ташкента этот проект был поручен нашей команде.",
     t_yht:"Yangihayot Industrial Texnopark",t_yhd:"По постановлению Президента основан Технопарк — современная промышленная зона. По доверию Премьер-министра РУз и хакима города Ташкента этот проект также был поручен нашей команде.",
     nav_adv:"Преимущества",
   adv_tag:"Почему Uchtepa City?",adv_title:"Инвестиционные преимущества",
@@ -157,6 +159,7 @@ ru:{
 },
 en:{
   nav_ind:"Indicators",nav_lots:"Lots",nav_price:"Pricing",nav_about:"About",nav_contacts:"Contacts",
+    proj3_tag:"Active · 2021",proj3_desc:"A modern industrial zone established by Presidential decree. Entrusted by the Prime Minister of Uzbekistan and the Mayor of Tashkent, this project was assigned to our team.",
     t_yht:"Yangihayot Industrial Texnopark",t_yhd:"By Presidential decree, the Yangihayot Industrial Technopark — a modern industrial zone — was established. Entrusted by the Prime Minister of Uzbekistan and the Mayor of Tashkent, this project was also assigned to our team.",
     nav_adv:"Advantages",
   adv_tag:"Why Uchtepa City?",adv_title:"Investment Advantages",
@@ -235,6 +238,7 @@ en:{
 },
 vi:{
   nav_ind:"Chỉ số",nav_lots:"Lô đất",nav_price:"Giá cả",nav_about:"Về chúng tôi",nav_contacts:"Liên hệ",
+    proj3_tag:"Đang hoạt động · 2021",proj3_desc:"Khu công nghiệp hiện đại được thành lập theo sắc lệnh Tổng thống. Được Thủ tướng Uzbekistan và Thị trưởng Tashkent tin tưởng giao cho đội ngũ của chúng tôi.",
     t_yht:"Yangihayot Industrial Texnopark",t_yhd:"Theo sắc lệnh của Tổng thống, Khu công nghệ Yangihayot — khu công nghiệp hiện đại — được thành lập. Được Thủ tướng Uzbekistan và Thị trưởng Tashkent tin tưởng giao cho đội ngũ của chúng tôi.",
     nav_adv:"Lợi thế",
   adv_tag:"Tại sao Uchtepa City?",adv_title:"Lợi thế đầu tư",
